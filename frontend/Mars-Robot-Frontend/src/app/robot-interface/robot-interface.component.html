@@ -1,7 +1,7 @@
 <div>
   <div class="board">
     <mat-grid-list cols="5" rowHeight="fit">
-      <mat-grid-tile *ngFor="let square of squareArray; let i = index " (click)="calculateIndex(i)">
+      <mat-grid-tile *ngFor="let square of squareArray; let i = index ">
         <div *ngIf="showRobot(getInvertedIndex(i))">
           <img src="../../assets/robot.png" [style.transform]="'rotate('+rotation+')'">
         </div>

@@ -55,12 +55,6 @@ export class RobotInterfaceComponent {
       });
   }
 
-  calculateIndex(index: number) {
-    index = index;
-    console.log('Índice clicado:', index);
-    this.showImage = true;
-  }
-
   getInvertedIndex(index: number): number {
     const gridSize = 5;
     const row = Math.floor(index / gridSize);
