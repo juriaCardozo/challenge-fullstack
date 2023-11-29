@@ -1,0 +1,29 @@
+<div>
+  <div class="board">
+    <mat-grid-list cols="5" rowHeight="fit">
+      <mat-grid-tile *ngFor="let square of squareArray; let i = index " (click)="calculateIndex(i)">
+        <div *ngIf="showRobot(getInvertedIndex(i))">
+          <img src="../../assets/robot.png" [style.transform]="'rotate('+rotation+')'">
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <h2>Mars Rover Control</h2>
+      <div *ngIf="robot">
+        <p>Posição final: ({{robot.xCoord}}, {{robot.yCoord}}, {{robot.orientation}}) </p>
+      </div>
+      <div *ngIf="robot == null">
+        <p>{{ errorMessage }}</p>
+      </div>
+      <mat-form-field>
+        <mat-label>Insira as coordenadas</mat-label>
+        <input matInput oninput="this.value = this.value.toUpperCase()" type="text" [ngModel]="commands"
+          (ngModelChange)="commands=$event">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="sendCommands()">Enviar as coordenadas</button>
+    </div>
+  </div>
+</div>
